@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Mrudnya</title>
+</head>
+<body>
+    <div class="container">
+
+    
+    <nav class="navbar-container">
+        <div class="navbar">
+          <div class="navbar-logo">
+            <a href="/"><img class="logo" src="static/LOGO.png" alt="" /></a>
+          </div>
+          <div class="navbar-links" id="navbar-links">
+            <div class="navbar-close-icon" id="close-icon">
+              <i class="fas fa-times">X</i>
+            </div>
+            <a class="menu-item" id="home-link" href="/">Home</a>
+            <a class="menu-item" id="predict-link" href="/predictcrop"
+              >Predict crop</a
+            >
+            <a class="menu-item" id="about-link" href="/about">About Us</a>
+            <a class="menu-item" id="contact-link" href="/contact"
+              >Contact Us</a
+            >
+          </div>
+
+          <div class="navbar-menu-icon" id="menu-icon">
+            <i class="fas fa-bars">=</i>
+          </div>
+        </div>
+      </nav>
+
+      <div class="row">
+        <div class="imgSection">
+            <img src="/static/plantImg.svg" alt="">
+        </div>
+
+        <div class="contentSection">
+            <h1>Mission</h1><br>
+            <p>At <span>Mrudnya,</span> our mission is to revolutionize agriculture by harnessing the power of IoT and machine learning to provide smarter and more efficient crop prediction solutions. By analyzing key soil parameters like pH, nutrients, and moisture levels, we aim to empower farmers with data-driven insights that help optimize crop yields and ensure sustainable farming practices.</p>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="contentSection">
+            <h1>What We Do</h1><br>
+            <p>Mrudnya offers an advanced smart crop prediction system that integrates IoT-based soil sensors with cutting-edge machine learning models. Our system continuously monitors the soil’s health and provides real-time recommendations for crop selection, irrigation needs, and fertilization. With our data-driven approach, farmers can make informed decisions to maximize productivity while minimizing waste and environmental impact.</p>
+        </div>
+        <div class="imgSection">
+            <img src="/static/plantImg3.svg" alt="">
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="imgSection">
+            <img src="/static/plantImg2.svg" alt="">
+        </div>
+
+        <div class="contentSection">
+            <h1>Our Vision</h1><br>
+            <p>We envision a world where technology and nature work in harmony. Through Mrudnya, we aim to provide farmers with the tools they need to adapt to changing environmental conditions, optimize resources, and achieve sustainable agricultural growth.</p>
+        </div> 
+
+      </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrudnya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <nav class="navbar-container">
+      <div class="navbar">
+        <div class="navbar-logo">
+          <a href="/"><img class="logo" src="static/LOGO.png" alt="" /></a>
+        </div>
+        <div class="navbar-links" id="navbar-links">
+          <div class="navbar-close-icon" id="close-icon">
+            <i class="fas fa-times">X</i>
+          </div>
+          <a class="menu-item" id="home-link" href="/">Home</a>
+          <a class="menu-item" id="predict-link" href="/predictcrop"
+            >Predict crop</a
+          >
+          <a class="menu-item" id="about-link" href="/about">About Us</a>
+          <a class="menu-item" id="contact-link" href="/contact"
+            >Contact Us</a
+          >
+        </div>
+
+        <div class="navbar-menu-icon" id="menu-icon">
+          <i class="fas fa-bars">=</i>
+        </div>
+      </div>
+    </nav>
+
+    <div class="predict-row">
+      <div class="predict-row-content">
+        <div class="imageSection">
+          <h1 class="predict-text">Best Crop <br> for Your Current Soil Conditions</h1>
+        </div>
+
+        <div class="form-content">
+          <form method="POST" action="/predict">
+            <div class="form-grid">
+              <div>
+                <label for="N_SOIL">N_SOIL</label>
+                <input type="number" id="N_SOIL" name="N_SOIL" step="any" min="0" max="1000" required><br>
+
+                <label for="P_SOIL">P_SOIL</label>
+                <input type="number" id="P_SOIL" name="P_SOIL" step="any" min="0" max="1000" required><br>
+
+                <label for="K_SOIL">K_SOIL</label>
+                <input type="number" id="K_SOIL" name="K_SOIL" step="any" min="0" max="1000" required><br>
+
+                <label for="TEMPERATURE">TEMPERATURE</label>
+                <input type="number" id="TEMPERATURE" name="TEMPERATURE" step="any" min="-50" max="50" required><br>
+              </div>
+              <div>
+                <label for="HUMIDITY">HUMIDITY</label>
+                <input type="number" id="HUMIDITY" name="HUMIDITY" step="any" min="0" max="100" required><br>
+
+                <label for="ph">pH</label>
+                <input type="number" id="ph" name="ph" step="any" min="0" max="14" required><br>
+
+                <label for="RAINFALL">RAINFALL</label>
+                <input type="number" id="RAINFALL" name="RAINFALL" step="any" min="0" max="5000" required><br>
+              </div>
+            </div>
+            <input type="submit" value="Predict">
+          </form>
+
+          <!-- {% if crop %} -->
+            <!-- <h2>Recommended Crop is &nbsp;&nbsp;<span class="output">{{ crop }}</span> </h2>
+          {% endif %} -->
+        </div>
+      </div>
+          <!-- {% if crop %} -->
+          <h2>Recommended Crop is &nbsp;&nbsp;<span class="output">{{ crop }}</span> </h2>
+          {% endif %}
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      const menuIcon = document.getElementById("menu-icon");
+      const closeIcon = document.getElementById("close-icon");
+      const navbarLinks = document.getElementById("navbar-links");
+      
+      let currentMenu = "home"; // default active menu
+      
+      const setActiveMenu = (menu) => {
+        document.querySelectorAll(".menu-item").forEach(item => {
+          item.classList.remove("active");
+        });
+        document.getElementById(`${menu}-link`).classList.add("active");
+        currentMenu = menu;
+      }
+
+      menuIcon.addEventListener("click", () => {
+        navbarLinks.classList.add("active");
+      });
+
+      closeIcon.addEventListener("click", () => {
+        navbarLinks.classList.remove("active");
+      });
+
+      document.getElementById("home-link").addEventListener("click", () => setActiveMenu("home"));
+      document.getElementById("about-link").addEventListener("click", () => setActiveMenu("about"));
+      document.getElementById("contact-link").addEventListener("click", () => setActiveMenu("contact"));
+      document.getElementById("blog-link").addEventListener("click", () => setActiveMenu("blog"));
+    </script>
+
+</body>
+</html>
